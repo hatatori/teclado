@@ -1,0 +1,175 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* transition: 0.1s; */
+    font-size: 13px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.back {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#292d3a, #1f252e);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.key p {
+    pointer-events: none;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.keys {
+    display: block;
+    width: min-content;
+    height: min-content;
+    position: relative;
+    display: flex;
+}
+
+.white_keys{ display: flex; }
+
+/* .black_keys { display: flex; } */
+
+.key {
+    width: 40px;
+    height: 130px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+    /* background-color: red; */
+}
+
+/* .key:hover {
+    translate: 0 3px;
+} */
+
+/* .key:active { */
+    /* height: 130px; */
+    /* box-shadow: 0px 0px gray, inset 1px 0px #ccc, inset -1px 0px #aaa, inset 0px -1px #ddd; */
+    /* translate: 0 10px; */
+/* } */
+
+.white_key {
+    background: radial-gradient(#ddd, #b2b2b2);
+    box-shadow: 0px 10px gray, inset 1px 0px #ccc, inset -1px 0px #aaa, inset 0px -1px #ddd;
+}
+
+.white_key::after{
+    content: attr(note);
+    position: absolute;
+    margin-bottom: 8px;
+}
+
+
+/* black piece */
+.black_key {
+    /* width: 30px;
+    height: 80px;
+    background: radial-gradient(#222, #111);
+    box-shadow: 0px 8px #1a1a1a, inset 1px 0px #424242, inset -1px 0px #282828, inset 5px -1px #ececec11;
+    color: white; */
+    width: 0px;
+    position: relative;
+    /* translate: 0 -10px; */
+    z-index: 3;
+}
+
+.black_key::after {
+    content: attr(note);
+    position: absolute;
+    top: -20px;
+    border-radius: 5px;
+    width: 30px;
+    height: 80px;
+    background: radial-gradient(#222, #111);
+    box-shadow: 0px 8px #1a1a1a, inset 1px 0px #424242, inset -1px 0px #282828, inset 5px -1px #ececec11;
+    color: white;
+    z-index: 3;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+
+
+/* .black_key+.white_key{
+    opacity: 0.5;
+    translate: -30px;
+} */
+
+
+/* black */
+.black_key:hover::after { box-shadow: 0px 5px #1a1a1a, inset 1px 0px #424242, inset -1px 0px #282828, inset 5px -1px #ececec11; }
+.black_key:active::after { box-shadow: 0px 0px #1a1a1a, inset 1px 0px #424242, inset -1px 0px #282828, inset 5px -1px #ececec11; translate: 0 -2px; }
+
+/* white */
+/* .white_key:hover { box-shadow: 0px 7px gray, inset 1px 0px #ccc, inset -1px 0px #aaa, inset 0px -1px #ddd; translate: 0 3px; } */
+/* .white_key:active { box-shadow: 0px 0px gray, inset 1px 0px #ccc, inset -1px 0px #aaa, inset 0px -1px #ddd; translate: 0 10px; } */
+
+.black_keys {
+    translate: 25px -140px;
+    position: absolute;
+    width: 0px;
+    position: absolute;
+}
+
+
+.black_key.pressed{ translate: 0 10px; }
+.black_key.pressed::after{box-shadow: 0px 0px #1a1a1a, inset 1px 0px #424242, inset -1px 0px #282828, inset 5px -1px #ececec11; translate: 0 -2px; }
+
+/* .white_key_press{box-shadow: 0px 0px gray, inset 1px 0px #ccc, inset -1px 0px #aaa, inset 0px -1px #ddd; translate: 0 10px;} */
+
+.white_key.pressed{ box-shadow: 0px 0px gray, inset 1px 0px #ccc, inset -1px 0px #aaa, inset 0px -1px #ddd; translate: 0 10px; }
+
+/* .black_key:nth-child(5n + 2) { left: calc(40px * var(--index)); } */
+/* .black_key:nth-child(7n + 2) { left: 30px; }  Dó# */
+/* .black_key:nth-child(7n + 3) { left: 70px; }  Ré# */
+/* .black_key:nth-child(7n + 5) { left: 150px; } Fá# */
+/* .black_key:nth-child(7n + 6) { left: 190px; } Sol# */
+/* .black_key:nth-child(7n + 7) { left: 230px; } Lá# */
+
+/* .black_keys div:nth-child(2n) { margin-left: calc(40px * --index); } */
+/* .black_keys div:nth-child(2n) { margin-left: calc(40px * --index); } */
+
+
+/*
+/* 
+.black_keys div:nth-child(11) { margin-left: 40px; }
+.black_keys div:nth-child(13) { margin-left: 40px; } */
+
+/* .black_keys div:nth-child(8){ margin-left: 40px; } */
+/* .black_keys div:nth-child(10){ margin-left: 40px; } */
+/* .black_keys div:nth-child(13){ margin-left: 40px; } */
+
+/* parte2 */
+.tag_position{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: #FFFFFF55;
+    font-size: 2em;
+    font-weight: bold;
+}
